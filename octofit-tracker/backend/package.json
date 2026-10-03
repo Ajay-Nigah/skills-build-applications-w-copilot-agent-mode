@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "dev": "tsx watch src/index.ts",
-    "start": "node dist/index.js"
+    "dev": "tsx watch src/server.ts",
+    "seed": "tsx src/scripts/seed.ts",
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "express": "^5.1.0",
