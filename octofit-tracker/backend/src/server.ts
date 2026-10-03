@@ -22,6 +22,21 @@ app.use('/api/activities/', createResourceRouter(Activity));
 app.use('/api/leaderboard/', createResourceRouter(Leaderboard, { points: -1 }));
 app.use('/api/workouts/', createResourceRouter(Workout));
 
+app.get('/', (_request, response) => {
+  response.json({
+    service: 'OctoFit Tracker API',
+    status: 'ok',
+    health: `${baseUrl}/api/health`,
+    resources: [
+      `${baseUrl}/api/users/`,
+      `${baseUrl}/api/teams/`,
+      `${baseUrl}/api/activities/`,
+      `${baseUrl}/api/leaderboard/`,
+      `${baseUrl}/api/workouts/`,
+    ],
+  });
+});
+
 app.get('/api/health', (_request, response) => {
   response.json({ status: 'ok', service: 'octofit-tracker-api', baseUrl });
 });
